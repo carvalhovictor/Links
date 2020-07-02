@@ -8,15 +8,14 @@ const SignUp = props => {
 
 	const submitHandler = e =>{
 		e.preventDefault();
+
 		const formData = new FormData(e.target);
 		const data = Object.fromEntries(formData);
-		
 		signUp(data);
 	};
 
-	if(account) {
-		return <Redirect to="/manage/links" />
-	}
+	if(account) return <Redirect to="/manage/links" />
+	
 
 	return (
 		<div className="container h-100 pt-5">
