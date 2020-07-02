@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {signIn} from "./SignInActions";
 
 const SignIn = props => {
-	const { account, signIn } = props;
+	const { signIn } = props;
 
 	const submitHandler = e => {
 		e.preventDefault();
