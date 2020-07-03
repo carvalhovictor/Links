@@ -3,9 +3,6 @@ import React, { useState, useEffect } from "react";
 const FormCheck = props => {
 	const { data, name, label} = props;
 	const [isChecked, setIsChecked] = useState(null);
-	console.log("**** DATA", data);
-	console.log("**** USESTATE");
-	
 
 	useEffect( () => {
 		const value = data && data[name] ? data[name] : undefined;
