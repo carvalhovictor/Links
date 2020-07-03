@@ -6,4 +6,4 @@ export const secondsToReadableTime = seconds => {
 	const readableTime = [h, m, s].map(formatNumber).join(":");
 
 	return readableTime;
-}
+};
