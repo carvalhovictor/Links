@@ -1,28 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-const FormCheck = props => {
-	const { data, name, label} = props;
-	const [isChecked, setIsChecked] = useState(null);
+function FormCheck(props) {
+  const { data, name, label } = props;
+  const [isChecked, setIsChecked] = useState(null);
 
-	useEffect( () => {
-		const value = data && data[name] ? data[name] : undefined;
-		if(value !== undefined) setIsChecked(!!value);
-	}, [name, data]);
+  useEffect(() => {
+    const initialValue = data && data[name] ? data[name] : undefined;
+    if (initialValue !== undefined) setIsChecked(initialValue);
+  }, [name, data]);
 
-	const handleChange = e => {
-		if(isChecked === e.target.checked) return;
-		setIsChecked(!!e.target.checked);
-	};
-	
-	return (
-		<div className="form-group form-check">
-			<label className="form-check-label">
-				<input type="checkbox" name={name} checked={!!isChecked} onChange={handleChange} />
-				<span className="form-check-sign"></span>
-				{label}
-			</label>
-		</div>
-	);
-};
+  const handleChange = (e) => {
+    if (isChecked === e.target.checked) return;
+    setIsChecked(!!e.target.checked);
+  };
+
+  const inputProps = {
+    type: 'checkbox',
+    name,
+    checked: !!isChecked,
+    onChange: handleChange,
+  };
+
+  return (
+    <div className="form-group form-check">
+      <label className="form-check-label">
+        <input {...inputProps} />
+        <span className="form-check-sign" />
+        {label}
+      </label>
+    </div>
+  );
+}
 
 export default FormCheck;
